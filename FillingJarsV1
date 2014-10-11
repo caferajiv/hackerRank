@@ -1,0 +1,41 @@
+package hacker;
+
+import java.math.BigInteger;
+import java.util.Scanner;
+
+public class FillingJars {
+	
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+	    
+		int noOfJars = in.nextInt();
+		
+		int noOfCases = in.nextInt();
+		
+		BigInteger[] jars = new BigInteger[noOfJars];
+		
+		for(int i=0;i<noOfJars;i++){
+			jars[i]=new BigInteger("0");
+		}
+		
+		for(int m=0;m<noOfCases;m++)
+		{
+			int i=in.nextInt();
+			int j=in.nextInt();
+			BigInteger add= BigInteger.valueOf(in.nextInt());
+			
+			for(;i<=j;i++){
+				jars[i-1]=jars[i-1].add(add);
+			}
+		}
+		BigInteger sum=new BigInteger("0");
+		for(int i=0;i<noOfJars;i++){
+			sum=sum.add(jars[i]);
+		}
+		
+		BigInteger avg=sum.divide(BigInteger.valueOf(noOfJars));
+		System.out.println(avg);
+		
+	}
+
+}
