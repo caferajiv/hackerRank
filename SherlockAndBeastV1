@@ -1,0 +1,90 @@
+package hacker;
+
+import java.util.Scanner;
+
+public class SherlockAndBeast {
+	
+	public static void main(String[] args) {
+		
+		Scanner in = new Scanner(System.in);
+	    
+		int noOfTestCases = in.nextInt();
+		
+		int[] arr = new int[noOfTestCases];
+		
+		for(int i=0;i<noOfTestCases;i++)
+		{
+			arr[i]=in.nextInt();
+		}
+		
+		for(int i=0;i<noOfTestCases;i++)
+		{
+			findDecentNumber(arr[i]);
+		}
+	}
+
+	private static void findDecentNumber(int digit) {
+		StringBuilder sb = new StringBuilder();
+		if(digit<3){
+			System.out.println(-1);
+			return;
+			
+		}
+			
+		
+		if(digit%3==0)
+		{
+			
+			for(int k=0;k<digit;k++)
+			{
+				sb.append("5");
+				
+			}
+			System.out.println(sb);
+			sb=null;
+			return;
+		}else if(digit%5==0){
+			sb = new StringBuilder();
+			for(int k=0;k<digit;k++)
+			{
+				sb.append("3");
+				//System.out.print(3);
+			}
+			System.out.println(sb);
+			return;
+		}
+		int i=3;
+		while(true){
+			
+			int left = digit-i;
+			
+			if(left<5){
+				System.out.println(-1);
+				return;
+			}else if(left%5==0){
+				sb=new StringBuilder();
+				for(int k=0;k<i;k++)
+				{
+					sb.append("5");
+					//System.out.print(5);
+				}
+				for(int k=0;k<left;k++)
+				{
+					sb.append("3");
+					//System.out.print(3);
+				}
+				System.out.println(sb);
+				return;
+			}else if(left>5){
+				i=i+3;
+			}
+			
+		}
+		
+		
+		
+	}
+	
+	
+
+}
